@@ -28,6 +28,12 @@ class App extends Component {
     this.setState({ filter: e.target.value });
   };
 
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
   render() {
     const { contacts, filter } = this.state;
     return (
@@ -36,7 +42,11 @@ class App extends Component {
         <ContactForm addContact={this.addContact} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.handleFilterChange} />
-        <ContactList contacts={contacts} filter={filter} />
+        <ContactList
+          contacts={contacts}
+          filter={filter}
+          deleteContact={this.deleteContact}
+        />
       </div>
     );
   }
@@ -96,7 +106,7 @@ class ContactForm extends Component {
 
 class ContactList extends Component {
   render() {
-    const { contacts, filter } = this.props;
+    const { contacts, filter, deleteContact } = this.props;
     const filteredContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
@@ -104,7 +114,11 @@ class ContactList extends Component {
     return (
       <ul>
         {filteredContacts.map(contact => (
-          <ContactListItem key={contact.id} contact={contact} />
+          <ContactListItem
+            key={contact.id}
+            contact={contact}
+            deleteContact={deleteContact}
+          />
         ))}
       </ul>
     );
@@ -112,11 +126,17 @@ class ContactList extends Component {
 }
 
 class ContactListItem extends Component {
+  handleDelete = () => {
+    const { contact, deleteContact } = this.props;
+    deleteContact(contact.id);
+  };
+
   render() {
     const { contact } = this.props;
     return (
       <li>
         {contact.name} - {contact.number}
+        <button onClick={this.handleDelete}>Delete</button>
       </li>
     );
   }
