@@ -9,7 +9,7 @@ const AppContainer = styled.div`
   width: 768px;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: #333;
 `;
 
@@ -76,9 +76,16 @@ const DeleteButton = styled.button`
   }
 `;
 
+const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const FilterInput = styled.input`
   padding: 10px;
   font-size: 16px;
+  margin-top: 5px;
 `;
 
 class App extends Component {
@@ -232,12 +239,15 @@ class Filter extends Component {
   render() {
     const { filter, onChange } = this.props;
     return (
-      <FilterInput
-        type="text"
-        value={filter}
-        onChange={onChange}
-        placeholder="Search contacts..."
-      />
+      <Label>
+        Filter contacts by name
+        <FilterInput
+          type="text"
+          value={filter}
+          onChange={onChange}
+          placeholder="Search contacts..."
+        />
+      </Label>
     );
   }
 }
