@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-/* import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter'; */
 
 class App extends Component {
   state = {};
   render() {
-    return <div>Hello world</div>;
+    return (
+      <div>
+        <h2>Phonebook</h2>
+
+        <h2>Contacts</h2>
+      </div>
+    );
   }
 }
 
