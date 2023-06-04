@@ -10,21 +10,21 @@ export const ContactListItem = styled.li`
   &:last-child {
     border-bottom: none;
   }
-  @media (max-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     padding: 8px;
   }
 `;
 
 export const ContactName = styled.span`
   font-weight: bold;
-  @media (max-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
   }
 `;
 
 export const ContactNumber = styled.span`
   color: #555;
-  @media (max-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
   }
 `;
@@ -40,7 +40,7 @@ export const DeleteButton = styled.button`
   &:hover {
     background-color: #888;
   }
-  @media (max-width: 320px) {
+  @media screen and (min-width: 320px) and (max-width: 767px) {
     font-size: 12px;
     padding: 4px 8px;
   }
