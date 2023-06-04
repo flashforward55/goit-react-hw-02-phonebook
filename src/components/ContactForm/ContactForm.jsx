@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { v4 as uuid } from 'uuid';
+import PropTypes from 'prop-types';
 import { Form, Input, Button } from './ContactForm.styled';
 
 class ContactForm extends Component {
@@ -57,5 +58,9 @@ class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  addContact: PropTypes.func.isRequired,
+};
 
 export default ContactForm;

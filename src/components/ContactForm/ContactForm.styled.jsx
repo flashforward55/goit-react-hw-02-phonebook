@@ -9,6 +9,11 @@ export const Input = styled.input`
   padding: 10px;
   margin-right: 10px;
   font-size: 16px;
+  @media (max-width: 320px) {
+    font-size: 14px;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
 `;
 
 export const Button = styled.button`
@@ -21,5 +26,9 @@ export const Button = styled.button`
 
   &:hover {
     background-color: #555;
+  }
+  @media (max-width: 320px) {
+    font-size: 14px;
+    padding: 8px;
   }
 `;

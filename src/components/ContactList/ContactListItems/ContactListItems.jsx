@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   ContactListItem,
   ContactName,
@@ -23,5 +24,14 @@ class ContactListItems extends Component {
     );
   }
 }
+
+ContactListItems.propTypes = {
+  contact: PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }).isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};
 
 export default ContactListItems;
