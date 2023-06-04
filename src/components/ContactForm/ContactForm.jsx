@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import { Form, Input, Button } from './ContactForm.styled';
 
@@ -17,7 +16,7 @@ class ContactForm extends Component {
       return;
     }
     const newContact = {
-      id: uuid(),
+      id: Date.now().toString(),
       name: name.trim(),
       number: number.trim(),
     };
