@@ -10,6 +10,7 @@ class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const { addContact } = this.props;
     const { name, number } = this.state;
     if (name.trim() === '' || number.trim() === '') {
       alert('Please enter a name and a number');
@@ -20,7 +21,7 @@ class ContactForm extends Component {
       name: name.trim(),
       number: number.trim(),
     };
-    this.props.addContact(newContact);
+    addContact(newContact);
     this.setState({ name: '', number: '' });
   };
 
