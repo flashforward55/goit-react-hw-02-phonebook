@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { AppContainer, Title } from './App.styled';
+import { AppContainer, Phonebook, Title } from './App.styled';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
@@ -46,7 +46,7 @@ class App extends Component {
     const { contacts, filter } = this.state;
     return (
       <AppContainer>
-        <Title>Phonebook</Title>
+        <Phonebook>Phonebook</Phonebook>
         <ContactForm addContact={this.addContact} />
         <Title>Contacts</Title>
         <Filter filter={filter} onChange={this.handleFilterChange} />

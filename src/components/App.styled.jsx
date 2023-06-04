@@ -7,6 +7,11 @@ export const AppContainer = styled.div`
   width: 768px;
 `;
 
+export const Phonebook = styled.h1`
+  color: #333;
+`;
+
 export const Title = styled.h2`
   color: #333;
+  margin-bottom: 10px;
 `;
