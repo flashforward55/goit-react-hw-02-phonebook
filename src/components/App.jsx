@@ -1,8 +1,9 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { AppContainer, Phonebook, Title } from './App.styled';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
+import ContactForm from './ContactForm';
+import ContactList from './ContactList';
+import Filter from './Filter';
 
 class App extends Component {
   state = {
@@ -60,4 +61,16 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+  filter: PropTypes.string,
+  addContact: PropTypes.func,
+  deleteContact: PropTypes.func,
+};
 export default App;
