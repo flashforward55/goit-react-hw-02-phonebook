@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { AppContainer, Title } from './App.styled';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';

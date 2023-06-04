@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { v4 as uuid } from 'uuid';
 import { Form, Input, Button } from './ContactForm.styled';
 

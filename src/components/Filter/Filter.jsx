@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Label, FilterInput } from './Filter.styled';
 class Filter extends Component {
   render() {
