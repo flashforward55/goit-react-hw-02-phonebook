@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 import { AppContainer, Phonebook, Title } from './App.styled';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
@@ -45,6 +44,9 @@ class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
     return (
       <AppContainer>
         <Phonebook>Phonebook</Phonebook>
@@ -52,8 +54,7 @@ class App extends Component {
         <Title>Contacts</Title>
         <Filter filter={filter} onChange={this.handleFilterChange} />
         <ContactList
-          contacts={contacts}
-          filter={filter}
+          filteredContacts={filteredContacts}
           deleteContact={this.deleteContact}
         />
       </AppContainer>
@@ -61,16 +62,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired
-  ),
-  filter: PropTypes.string,
-  addContact: PropTypes.func,
-  deleteContact: PropTypes.func,
-};
 export default App;

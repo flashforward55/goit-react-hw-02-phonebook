@@ -5,10 +5,7 @@ import ContactListItems from './ContactListItems';
 
 class ContactList extends Component {
   render() {
-    const { contacts, filter, deleteContact } = this.props;
-    const filteredContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    const { filteredContacts, deleteContact } = this.props;
 
     return (
       <ContactListContainer>
